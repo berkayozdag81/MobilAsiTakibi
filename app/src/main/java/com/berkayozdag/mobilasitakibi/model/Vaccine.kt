@@ -1,10 +1,10 @@
 package com.berkayozdag.mobilasitakibi.model
 
-import java.util.*
+import java.io.Serializable
+
 
 data class Vaccine(
-    val name: String,
-    //val vaccineDate: String,
-    //val hasTaken: Boolean,
-    val dates: List<Dates>? = null
-): java.io.Serializable
+    val id:String="",
+    val name: String="",
+    val dates: List<Dates>?= emptyList(),
+):Serializable

@@ -50,6 +50,7 @@ class AddVaccineFragment : Fragment() {
         db.collection("vaccines")
             .add(vaccine)
             .addOnSuccessListener {
+                db.collection("vaccines").document(it.id).update("id", it.id)
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setMessage("Aşı Eklendi")
                 builder.setPositiveButton("Tamam"){ dialog, _ ->
@@ -82,7 +83,7 @@ class AddVaccineFragment : Fragment() {
                     list.add(Dates(formattedDate,false))
                 }
             }
-            addVaccine(Vaccine(editMedName.text.toString(),list))
+            addVaccine(Vaccine("1",editMedName.text.toString(),list))
         }
     }
 }

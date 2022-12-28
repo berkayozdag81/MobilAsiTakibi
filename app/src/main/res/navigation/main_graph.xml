@@ -15,11 +15,19 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment3"
-        android:name="com.berkayozdag.mobilasitakibi.ui.fragment.HomeFragment"
+        android:name="com.berkayozdag.mobilasitakibi.ui.fragment.home.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment3_to_addVaccineFragment4"
             app:destination="@id/addVaccineFragment4" />
+        <action
+            android:id="@+id/action_homeFragment3_to_vaccineDetail"
+            app:destination="@id/vaccineDetail" />
     </fragment>
+    <fragment
+        android:id="@+id/vaccineDetail"
+        android:name="com.berkayozdag.mobilasitakibi.ui.fragment.VaccineDetail"
+        android:label="fragment_vaccine_detail"
+        tools:layout="@layout/fragment_vaccine_detail" />
 </navigation>

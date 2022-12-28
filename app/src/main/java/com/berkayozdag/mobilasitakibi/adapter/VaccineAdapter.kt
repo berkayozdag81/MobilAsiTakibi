@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.berkayozdag.mobilasitakibi.databinding.RowVaccineBinding
-import com.berkayozdag.mobilasitakibi.model.User
 import com.berkayozdag.mobilasitakibi.model.Vaccine
 
-class VaccineAdapter(var onItemClicked: ((User) -> Unit) = {}) :
+class VaccineAdapter(
+    var onItemClicked: ((Vaccine) -> Unit) = {},
+) :
     RecyclerView.Adapter<VaccineAdapter.VaccineViewHolder>() {
 
-    var items: List<User> = emptyList()
+    var items: List<Vaccine> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -18,9 +19,10 @@ class VaccineAdapter(var onItemClicked: ((User) -> Unit) = {}) :
 
     inner class VaccineViewHolder(private val binding: RowVaccineBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(vaccine: User) {
-            binding.vaccineName.text=vaccine.name
-            binding.vaccineDetailButton.setOnClickListener {
+        fun bind(vaccine: Vaccine) {
+
+            binding.vaccineName.text = vaccine.name
+            binding.vaccine.setOnClickListener {
                 onItemClicked.invoke(vaccine)
             }
         }
@@ -37,4 +39,5 @@ class VaccineAdapter(var onItemClicked: ((User) -> Unit) = {}) :
     }
 
     override fun getItemCount() = items.size
+
 }
