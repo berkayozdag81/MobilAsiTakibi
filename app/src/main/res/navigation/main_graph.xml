@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment3">
+    <fragment
+        android:id="@+id/addVaccineFragment4"
+        android:name="com.berkayozdag.mobilasitakibi.ui.fragment.AddVaccineFragment"
+        android:label="fragment_add_vaccine"
+        tools:layout="@layout/fragment_add_vaccine" >
+        <action
+            android:id="@+id/action_addVaccineFragment4_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment3"
+        android:name="com.berkayozdag.mobilasitakibi.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment3_to_addVaccineFragment4"
+            app:destination="@id/addVaccineFragment4" />
+    </fragment>
+</navigation>

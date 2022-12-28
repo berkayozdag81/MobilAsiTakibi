@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "211339714040",
+    "project_id": "mobilasitakibi",
+    "storage_bucket": "mobilasitakibi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211339714040:android:8e86da344a7cbeaf2f4a0d",
+        "android_client_info": {
+          "package_name": "com.berkayozdag.mobilasitakibi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211339714040-o9cls2fm2g8243a2gq59k48r2i63nrsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoFPsHVxfp-MdohmpMX9WTN_MgNO_IRzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211339714040-o9cls2fm2g8243a2gq59k48r2i63nrsd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
