@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/selim"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -16,9 +16,14 @@
 
     </TextView>
 
-    <CheckBox
-        android:id="@+id/vaccine_has_taken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+  <ImageButton
+      android:id="@+id/vaccine_taken_button"
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:background="?android:selectableItemBackground"
+      android:src="@drawable/ic_baseline_done_outline_24"
+      app:tint="#4CAF50">
+
+  </ImageButton>
 
 </LinearLayout>

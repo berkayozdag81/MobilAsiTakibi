@@ -25,7 +25,7 @@ class DatesAdapter(
         fun bind(dates: Dates,position: Int) {
 
             binding.vaccineDate.text=dates.vaccineDate
-            binding.selim.setOnClickListener {
+            binding.vaccineTakenButton.setOnClickListener {
                 onItemClicked(position)
             }
             /*
