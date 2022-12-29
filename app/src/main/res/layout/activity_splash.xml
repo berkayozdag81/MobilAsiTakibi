@@ -8,7 +8,7 @@
     tools:context=".ui.activity.SplashActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#6E49FF"
+        android:background="#2C74B3"
         android:id="@+id/splashLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/dumbell_fitness_svg"
+            android:src="@drawable/ic_vaccine_svgrepo_com"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
