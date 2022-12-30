@@ -85,5 +85,9 @@ class AddVaccineFragment : Fragment() {
             }
             addVaccine(Vaccine("1",editMedName.text.toString(),list))
         }
+
+        arrowBackAddVaccine.arrowBack.setOnClickListener {
+            findNavController().navigate(R.id.action_addVaccineFragment4_to_homeFragment3)
+        }
     }
 }

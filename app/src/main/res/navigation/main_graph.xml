@@ -29,5 +29,9 @@
         android:id="@+id/vaccineDetail"
         android:name="com.berkayozdag.mobilasitakibi.ui.fragment.VaccineDetail"
         android:label="fragment_vaccine_detail"
-        tools:layout="@layout/fragment_vaccine_detail" />
+        tools:layout="@layout/fragment_vaccine_detail" >
+        <action
+            android:id="@+id/action_vaccineDetail_to_homeFragment3"
+            app:destination="@id/homeFragment3" />
+    </fragment>
 </navigation>

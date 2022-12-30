@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
         binding.vaccinesRW.layoutManager = layoutManager
     }
 
-    private fun loadTransactions(vaccines: List<Vaccine>) {
+    private fun loadVaccine(vaccines: List<Vaccine>) {
         adapter.items = vaccines
         binding.vaccinesRW.adapter = adapter
         adapter.onItemClicked = { vaccine ->
@@ -58,7 +58,6 @@ class HomeFragment : Fragment() {
 
     private fun getVaccines() {
         db.collection("vaccines").get().addOnSuccessListener {
-            context?.showToast("Veri cekme basarili")
             val vaccines = arrayListOf<Vaccine>()
             for (x in it.documents) {
                 Log.d("deneme",x.id)
@@ -67,7 +66,7 @@ class HomeFragment : Fragment() {
                     vaccines.add(vaccine)
                 }
             }
-            loadTransactions(vaccines)
+            loadVaccine(vaccines)
 
         }.addOnFailureListener {
             context?.showToast("Veri cekme basarisiz")
