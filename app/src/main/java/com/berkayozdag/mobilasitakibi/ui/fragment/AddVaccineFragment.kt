@@ -55,7 +55,7 @@ class AddVaccineFragment : Fragment() {
                 builder.setMessage("Aşı Eklendi")
                 builder.setPositiveButton("Tamam"){ dialog, _ ->
                     dialog.dismiss()
-                    //findNavController().navigate(R.id.action_addVaccineFragment4_to_homeFragment3)
+                    findNavController().navigate(R.id.action_addVaccineFragment4_to_homeFragment3)
                 }
                 builder.show()
             }

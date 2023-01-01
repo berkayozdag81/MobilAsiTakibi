@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.berkayozdag.mobilasitakibi.R
 import com.berkayozdag.mobilasitakibi.adapter.VaccineAdapter
+import com.berkayozdag.mobilasitakibi.databinding.FragmentHome2Binding
 import com.berkayozdag.mobilasitakibi.databinding.FragmentHomeBinding
 import com.berkayozdag.mobilasitakibi.model.Vaccine
 import com.berkayozdag.mobilasitakibi.utils.showToast
@@ -18,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHome2Binding
     private val adapter = VaccineAdapter()
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -27,32 +28,24 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        setupRecyclerview()
-        initViews()
-        getVaccines()
-        setListener()
+        binding = FragmentHome2Binding.inflate(inflater, container, false)
         return binding.root
     }
 
-    private fun initViews() {
-        binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment3_to_addVaccineFragment4)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getVaccines()
+        setListener()
     }
 
-    private fun setupRecyclerview() {
-        val layoutManager = LinearLayoutManager(requireContext())
-        binding.vaccinesRW.layoutManager = layoutManager
-    }
 
     private fun loadVaccine(vaccines: List<Vaccine>) {
         adapter.items = vaccines
         binding.vaccinesRW.adapter = adapter
         adapter.onItemClicked = { vaccine ->
-            val bundle=Bundle()
-            bundle.putSerializable("vaccine",vaccine)
-          findNavController().navigate(R.id.action_homeFragment3_to_vaccineDetail,bundle)
+            val bundle = Bundle()
+            bundle.putSerializable("vaccine", vaccine)
+            findNavController().navigate(R.id.action_homeFragment3_to_vaccineDetail, bundle)
         }
     }
 
@@ -60,10 +53,12 @@ class HomeFragment : Fragment() {
         db.collection("vaccines").get().addOnSuccessListener {
             val vaccines = arrayListOf<Vaccine>()
             for (x in it.documents) {
-                Log.d("deneme",x.id)
+                Log.d("deneme", x.id)
                 val vaccine = x.toObject(Vaccine::class.java)
                 if (vaccine != null) {
-                    vaccines.add(vaccine)
+                    if(vaccine.dates?.size !=0){
+                        vaccines.add(vaccine)
+                    }
                 }
             }
             loadVaccine(vaccines)
@@ -74,6 +69,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setListener() {
-
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment3_to_addVaccineFragment4)
+        }
     }
 }
